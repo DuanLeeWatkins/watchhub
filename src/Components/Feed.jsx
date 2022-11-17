@@ -6,10 +6,13 @@ import { Sidebar, Videos } from "./";
 
 const Feed = () => {
   const [selectedCategory, setSelectedCategory] = useState("New");
+  const [videos, setVideos] = useState([]);
 
   useEffect(() => {
-    fetchFromAPI(`search?part=snippet&q=${selectedCategory}`);
-  });
+    fetchFromAPI(`search?part=snippet&q=${selectedCategory}`).then((data) =>
+      setVideos(data.items)
+    );
+  }, [selectedCategory]);
   return (
     <Stack sx={{ flexDirection: { sx: "column", md: "row" } }}>
       <Box
@@ -38,9 +41,9 @@ const Feed = () => {
           mb={2}
           sx={{ color: "white" }}
         >
-          New <span style={{ color: "#f31503" }}>videos</span>
+          {selectedCategory} <span style={{ color: "#f31503" }}>videos</span>
         </Typography>
-        <Videos videos={[]} />
+        <Videos videos={videos} />
       </Box>
     </Stack>
   );
