@@ -14,6 +14,7 @@ const Feed = () => {
     );
   }, [selectedCategory]);
   return (
+/* sidebar */
     <Stack sx={{ flexDirection: { sx: "column", md: "row" } }}>
       <Box
         sx={{
@@ -26,6 +27,7 @@ const Feed = () => {
           selectedCategory={selectedCategory}
           setSelectedCategory={setSelectedCategory}
         />
+{/* copyright */}
         <Typography
           className="copyright"
           variant="body2"
@@ -34,6 +36,7 @@ const Feed = () => {
           Copyright 2022 AstroDev Media
         </Typography>
       </Box>
+{/* video heading */}
       <Box p={2} sx={{ overflowY: "auto", height: "90vh", flex: 2 }}>
         <Typography
           variant="h4"
