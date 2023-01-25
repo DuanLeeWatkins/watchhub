@@ -1,10 +1,14 @@
 import { Stack, Box } from "@mui/material";
 import { VideoCard, ChannelCard } from "./";
 
-const Videos = ({ videos }) => {
+const Videos = ({ videos, direction }) => {
+  // Loader
+  if (!videos?.length) return "Loading...";
   return (
     <Stack
-      direction={{ xs: "column", sm: "row" }}
+      //Instead of having the direction hardcoded we make it dynamic.
+      //First we check for specific direction passed in. If nothing passed, then use row.
+      direction={direction || "row"}
       flexWrap="wrap"
       justifyContent="start"
       gap={2}
