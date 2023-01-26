@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Typography, Card, CardContent, CardMedia } from "@mui/material";
 import { CheckCircle } from "@mui/icons-material";
+import AspectRatio from '@mui/joy/AspectRatio'
 
 import {
   demoThumbnailUrl,
@@ -19,7 +20,7 @@ const VideoCard = ({
   return (
     <Card
       sx={{
-        width: { xs: "100%", md: "320px" },
+        width: { xs: '345px', sm: '358px', md: "320px" },
         boxShadow: "none",
         borderRadius: 0,
       }}
@@ -29,7 +30,7 @@ const VideoCard = ({
           image={snippet?.thumbnails?.high?.url}
           alt={snippet?.title}
           sx={{
-            width: 358,
+            width: {xs: '345px', sm: '358px', md: '320px'},
             height: 180,
           }}
         />
